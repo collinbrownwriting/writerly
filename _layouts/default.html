@@ -9,13 +9,21 @@
       <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
       <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
       <div class="container">
-        <nav class="main-nav">
-          <ul>
-            <li><a href="/index.html">Home</a></li>
-            <li><a href="/about.html">About</a></li>
-          </ul>
+				<nav class="main-nav">
+					<ul>
+						{% assign navigation_pages = site.html_pages | sort: 'navigation_weight' %}
+						{% for p in navigation_pages %}
+							{% if p.navigation_weight %}
+								<li>
+									<a href="{{ p.url }}" {% if p.url == page.url %}class="active"{% endif %}>
+										{{ p.title }}
+									</a>
+								</li>
+							{% endif %}
+						{% endfor %}
+					</ul>
         </nav>
-      </div>
+			</div>
   </header>
     
     
