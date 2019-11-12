@@ -3,7 +3,13 @@
   <head>
     <meta charset="utf-8">
     <title>{{ page.title }}</title>
-    <style>
+  </head>
+  <body>
+    <header class="page-header" role="banner">
+      <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
+      <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
+    </header>
+    <nav>
       .topnav {
         overflow: hidden;
         background-color: #333;
@@ -24,15 +30,7 @@
       background-color: #4CAF50;
       color: white;
     }
-  </style>
-  </head>
-  <body>
-    <header class="page-header" role="banner">
-      <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
-      <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
-    </header>
-
-    
+  </nav>
     {% include navigation.html %}
     {{ content }}
   </body>
