@@ -3,9 +3,16 @@
   <head>
     <meta charset="utf-8">
     <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="/css/style.css">
   </head>
-  <body>
-    {% include nagitation.html %}
+  {% include navigation.html %}
+  <div class="content">
     {{ content }}
+  </div>
+    <footer>
+      <div class="container">
+        <p class="center-text">Copyright of Collin Brown, 2019</a></p>
+      </div>
+    </footer>
   </body>
 </html>
